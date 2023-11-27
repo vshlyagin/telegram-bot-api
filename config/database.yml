@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: telegram_bot_api_development
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: telegram_bot_api_test
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: telegram_bot_api_production
+  pool: 5
+  username: 
+  password:

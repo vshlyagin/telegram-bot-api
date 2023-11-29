@@ -5,6 +5,8 @@ ruby "3.0.2"
 
 gem "telegram-bot-ruby"
 
+gem 'httparty', '~> 0.21.0'
+
 gem "net-http"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
@@ -30,4 +32,5 @@ end
 
 group :development do
 end
+
 

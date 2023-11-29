@@ -3,22 +3,17 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+Things you may want to ccover:
 
-* Ruby version
+* Ruby version 3.0.2
 
-* System dependencies
+* Ruby on rails version 7.0.8
 
-* Configuration
+* to set gems:
+* bundle install
 
-* Database creation
+* Database creation: rake db:create
 
-* Database initialization
+* Database initialization: rake db:migrate
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

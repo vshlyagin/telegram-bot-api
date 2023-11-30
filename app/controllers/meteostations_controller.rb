@@ -3,6 +3,7 @@ class MeteostationsController < ApplicationController
     before_action :auth
 
     def index
+        update_info()
         meteostations = Meteostation.all
         render json: meteostations.as_json(except: [:created_at, :updated_at])
     end
@@ -37,6 +38,7 @@ class MeteostationsController < ApplicationController
             end
     end
 
+    
 
     private
         def auth
@@ -55,5 +57,24 @@ class MeteostationsController < ApplicationController
             json_body=JSON.parse(response.body) 
 
         end
+
+        def update_info
+            json_body = get_info_meteostation(60546)
+            temp = json_body["parameters"].find { |param| param["code"] == "wTempCloud" }
+            wet = json_body["parameters"].find { |param| param["code"] == "wHummidCloud" }
+            co = json_body["parameters"].find { |param| param["code"] == "wCo2Cloud" }
+    
+            id_device = json_body["id"]
+            temperatureValue = temp["value"]
+            wetValue = wet["value"]
+            coValue = co["value"]
+            ms = Meteostation.find_by(id_device: 60546)
+            if ms
+                ms.update(temp: temperatureValue, wet: wetValue, co: coValue)
+            else
+                render json: {"Error": "Обьект с таким айди не найден"}
+            end
+        end
+    
 
 end

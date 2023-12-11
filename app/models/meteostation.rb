@@ -1,2 +1,0 @@
-class Meteostation < ApplicationRecord
-end

@@ -1,12 +1,11 @@
 class DevicesController < ApplicationController
-
-  include Integration::Owen
-    
     def index
-      render json: Client.new.get_devices
+      json_body, code = Integration::Owen::Client.new.get_devices
+      render json: json_body, status: code
     end
 
     def show
-      render json: Client.new.get_device(params[:id])
+      json_body, code = Integration::Owen::Client.new.get_device(params[:id])
+      render json: json_body, status: code
     end
 end

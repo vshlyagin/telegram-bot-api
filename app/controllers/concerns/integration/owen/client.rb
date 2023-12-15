@@ -20,15 +20,18 @@ module Integration
   
       private 
   
-      def request (uri)
+      def request(uri)
         auth
         response = HTTParty.post(@host + uri,
           :body => "",
           :headers => {'Authorization' => "Bearer #{@token}"}
         )
-        json_body=JSON.parse(response.body) 
+        json_body = JSON.parse(response.body)
+        status_code = response.code  # Получить HTTP статус
+        # Далее вы можете выполнить необходимые действия с полученным статусом
+        return json_body, status_code
       end
-  
+      
       def auth
         response = HTTParty.post(@host + "/v1/auth/open",
           :body => { "login" => "#{@login}","password" => "#{@password}"}.to_json,

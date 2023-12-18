@@ -5,6 +5,8 @@ ruby "3.0.2"
 
 gem "telegram-bot-ruby"
 
+gem 'httparty', '~> 0.21.0'
+
 gem "net-http"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
@@ -24,10 +26,11 @@ gem "bootsnap", require: false
 gem "rack-cors"
 
 group :development, :test do
-
+  gem 'rspec-rails', '~> 6.1.0'
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
 end
+
 
